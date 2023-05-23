@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Simple Calculator
+
+<img width="358" alt="Screenshot 2023-05-23 at 11 29 50 AM" src="https://github.com/skullyflower/hello-calculator/assets/23393335/4717a0f2-d952-4f07-bb29-eaf4f944e5d4">
+
+Tests to come ...
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
