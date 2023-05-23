@@ -92,8 +92,9 @@ const percent = () => {
 const functionKeyPress = (operation:string) => {
   if( total === 0) setTotal(Number(activeNumber));
   setActiveFunction(operation);
-  if(total!==0&&activeNumber!==''){ 
-    setTotal(doOperation(Number(activeNumber), total, operation));}
+  if(total!==0 && activeNumber!==''&& activeFunction!==null){ 
+    setTotal(doOperation(Number(activeNumber), total, activeFunction));
+  }
   setActiveNumber('');
 }
 
