@@ -1,4 +1,9 @@
-.calculator .buttons{
+.calculator {
+  border: 2px solid #000;
+  border-radius: 5px;
+  width: 320px;
+}
+.buttons{
   background-color: #000;
   padding: 10px;
   border-radius: 3px
@@ -28,6 +33,8 @@
   -ms-grid-column-span: 2;
 }
 .calculator .total{
+  max-width: 100%;
   font-size: 36px;
   text-align: right;
+  overflow-x: hidden;
 }
