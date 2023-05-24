@@ -6,12 +6,11 @@
 .buttons{
   background-color: #000;
   padding: 10px;
-  border-radius: 3px
-  ;
+  border-radius: 3px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
   grid-template-rows:repeat(5,1fr);
-  gap: 2px;
+  gap: 4px;
   width: 300px;
   height: 400px;
 
@@ -27,14 +26,15 @@
 }
 .calculator button:active,.calculator button:hover{
   cursor: pointer;
-  box-shadow: 0 0 15px #999;
+  box-shadow: 0 0 15px #aaa;
 }
-.calculator button.wide{
-  -ms-grid-column-span: 2;
-}
+
 .calculator .total{
+  background-color: #282c34;
+  padding: 0 5px;
   max-width: 100%;
   font-size: 36px;
+  line-height: 2;
   text-align: right;
   overflow-x: hidden;
 }
