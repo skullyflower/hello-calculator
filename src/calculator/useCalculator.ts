@@ -10,8 +10,8 @@ function concatenateNumKeyPress(activeNumber: string, digit: string) {
 }
 
 function doOperation(number: number, runningtotal: number, operation: string | null) {
-  const numPoints = number.toString().split('.')[1]?.length || 0;
-  const totalPoints = runningtotal.toString().split('.')[1]?.length || 0;
+  const numPoints = number.toString().split('.')[1]?.length || 2;
+  const totalPoints = runningtotal.toString().split('.')[1]?.length || 2;
   const mostPoints = numPoints - totalPoints > 0 ? numPoints : totalPoints;
   const maxPoints = numPoints + totalPoints;
   switch (operation) {
@@ -21,7 +21,7 @@ function doOperation(number: number, runningtotal: number, operation: string | n
     case '+':
       return Number((runningtotal + number).toPrecision(mostPoints));
     case '-':
-      return Number((runningtotal - number).toPrecision(mostPoints));
+      return Number((runningtotal - number).toPrecision(maxPoints));
     case '×':
       return Number((runningtotal * number).toPrecision(maxPoints));
     case null:
@@ -33,7 +33,7 @@ function doOperation(number: number, runningtotal: number, operation: string | n
 const formatTotal = (number: string, total: number) => {
   const rawNumber = number !== '' && Number(number) !== total ? number : total;
   const stringNumber = rawNumber.toString();
-  
+
   if (stringNumber.length > 10) {
     return Number(stringNumber).toPrecision(10).toString();
   }
@@ -96,11 +96,10 @@ export const useCalculator = () => {
 
   const functionKeyPress = (operation: string) => {
     if (total === 0) setTotal(Number(activeNumber));
-    setActiveFunction(operation);
-    if (total !== 0 && activeNumber !== '' && activeFunction !== null) {
-      if (activeNumber === '0' && activeFunction === '÷') setHasError(true);
-      setTotal(doOperation(Number(activeNumber), total, activeFunction));
+    if (activeNumber !== '') {
+      processCalculation();
     }
+    setActiveFunction(operation);
     setActiveNumber('');
   };
 
