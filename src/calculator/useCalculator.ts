@@ -10,18 +10,20 @@ function concatenateNumKeyPress(activeNumber: string, digit: string) {
 }
 
 function doOperation(number: number, runningtotal: number, operation: string | null) {
-  const numPoints = number.toString().split('.')[1]?.length || 2;
-  const totalPoints = runningtotal.toString().split('.')[1]?.length || 2;
+  const numPoints = number.toString().replace('.', '')?.length;
+  const totalPoints = runningtotal.toString().replace('.', '')?.length;
   const mostPoints = numPoints - totalPoints > 0 ? numPoints : totalPoints;
   const maxPoints = numPoints + totalPoints;
   switch (operation) {
     case '÷':
-      if (number) return runningtotal / number;
+      if (number) {
+        return Number((runningtotal / number).toPrecision(maxPoints));
+      }
       return runningtotal;
     case '+':
       return Number((runningtotal + number).toPrecision(mostPoints));
     case '-':
-      return Number((runningtotal - number).toPrecision(maxPoints));
+      return Number((runningtotal - number).toPrecision(mostPoints));
     case '×':
       return Number((runningtotal * number).toPrecision(maxPoints));
     case null:
