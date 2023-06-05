@@ -9,23 +9,25 @@ function concatenateNumKeyPress(activeNumber: string, digit: string) {
   }
 }
 
+function fixProcision(num: number) {
+  const stringNum = num.toPrecision(13);
+  if (stringNum.includes('.')) return Number(stringNum.replace(/[0]*$/, ''));
+  return Number(stringNum);
+}
+
 function doOperation(number: number, runningtotal: number, operation: string | null) {
-  const numPoints = number.toString().replace('.', '')?.length;
-  const totalPoints = runningtotal.toString().replace('.', '')?.length;
-  const mostPoints = numPoints - totalPoints > 0 ? numPoints : totalPoints;
-  const maxPoints = numPoints + totalPoints;
   switch (operation) {
     case '÷':
       if (number) {
-        return Number((runningtotal / number).toPrecision(maxPoints));
+        return fixProcision(runningtotal / number);
       }
       return runningtotal;
     case '+':
-      return Number((runningtotal + number).toPrecision(mostPoints));
+      return fixProcision(runningtotal + number);
     case '-':
-      return Number((runningtotal - number).toPrecision(mostPoints));
+      return fixProcision(runningtotal - number);
     case '×':
-      return Number((runningtotal * number).toPrecision(maxPoints));
+      return fixProcision(runningtotal * number);
     case null:
       return runningtotal;
     default:
@@ -36,8 +38,8 @@ const formatTotal = (number: string, total: number) => {
   const rawNumber = number !== '' && Number(number) !== total ? number : total;
   const stringNumber = rawNumber.toString();
 
-  if (stringNumber.length > 10) {
-    return Number(stringNumber).toPrecision(10).toString();
+  if (stringNumber.length > 12) {
+    return fixProcision(Number(stringNumber));
   }
   return rawNumber.toString();
 };
