@@ -1,12 +1,15 @@
 # Simple Calculator
 
+This was a practice exercise. I would have used a library, but I wanted to tackle the problems of writing a calculator in TS myself. I solved for the remainder problem, but lost interest before solving for large numbers so it&apos;s losing precision once the numbers get past 13 digits.
+
 <img width="358" alt="Screenshot 2023-05-23 at 11 29 50 AM" src="https://github.com/skullyflower/hello-calculator/assets/23393335/4717a0f2-d952-4f07-bb29-eaf4f944e5d4">
 
 ## TODO:
 
+- Handle display of very large numbers.
 - tests
-- respond to keyed in numbers
-- pasted numbers
+- respond to keyed in numbers.
+- allow pasting of numbers
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) with the typescript template.
 
