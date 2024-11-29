@@ -8,11 +8,9 @@ export const Calculator = () => {
   return (
     <>
       <h1>Calculator Exercise</h1>
-      <p style={{ fontSize: '1em' }}>
-        This was a practice exercise. I would have used a library, but I wanted to tackle the
-        problems of writing a calculator in TS myself. I solved for the remainder problem, but lost
-        interest before solving for large numbers so it&apos;s losing precision once the numbers get
-        past 13 digits.
+      <p style={{ fontSize: '1em', paddingInline: '40px' }}>
+        This was just a practice exercise. I wanted to tackle the problems of writing a calculator
+        in TS myself. It works okay as long as the numbers don&apos;t get too large.
       </p>
       <div className='calculator' style={{ color: '#fff', margin: '0 auto' }}>
         <div className='total'>{displayTotal}</div>
